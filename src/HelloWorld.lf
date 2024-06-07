@@ -1,0 +1,24 @@
+/**
+ * Hello World example illustrating the use of printf.
+ * After compiling and flashing this program to an nRF52 board, run `make rtt`
+ * in the generated directory to see the printf output.
+ * ```
+ *     lfc-dev src/HelloWorld.lf
+ *     cd src-gen/HelloWorld
+ *     make rtt
+ * ```
+ * The last line opens terminal windows that show the printf output.
+ * @author Edward A. Lee
+ */
+target C {
+  platform: "NRF52",
+  single-threaded: true,
+  build: "../scripts/build_nrf_unix.sh"
+}
+
+main reactor {
+  timer t(0, 1 sec)
+  reaction(t) {=
+    printf("Hello world\n");
+  =}
+}
