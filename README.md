@@ -16,10 +16,10 @@ Other sample programs are provided in the [src](src) directory.
 
 There is quie a bit of work to do before the nRF52 support is ready for prime time. Here is a working list:
 
-- [ ] Merge the nrf52 branch into lingua-franca and update instructions below
-- [ ] Support soft device
-- [ ] Fix timer overflow (LF program stops running after about 2 hours)
-- [ ] Support nRF53 devices with threaded runtime to use both cores
+- [ ] Merge the nrf52 branch into lingua-franca and update instructions below.
+- [ ] Support soft device (in reactor-c, find "FIXME: If softdevice is enabled").
+- [ ] Fix timer overflow (LF program stops running after about 2 hours).
+- [ ] Support nRF53 devices with threaded runtime to use both cores.
 - [ ] Extend NRF52 target to support a `board` argument and handle switching boards.
 
 ## Setup
@@ -78,7 +78,7 @@ The "EDU" edition works fine.
 This repo is set up by default to target the nRF52840dk board without any soft device.
 To change boards, copy the appropriate `Board.mk` file from `nrf52x-base/boards/...` into the `platforms` directory, overwriting the file that is there.
 
-The file `platform/Makefile` pulls in the `platform/Board.mk` and Nordic's master makefile, `nrf52x-base/make/AppMakefile.mk`.  To customize, you can define makefile variables by editing `platform/Makefile` and setting the variables described in [Nordic's README file](nrf52x-base/make/README.md).
+The file `platform/Makefile` pulls in the `platform/Board.mk` and Nordic's master makefile, `nrf52x-base/make/AppMakefile.mk`.  To customize, you can define makefile variables by editing `platform/Makefile` and setting the variables described in Nordic's README file, [`nrf52x-base/make/README.md`](nrf52x-base/make/README.md) (available after doing `git submodule update --init --recursive`).
 
 Assuming `USE_APP_CONFIG` is set (as it is by default in `platform/Makefile`), Nordic's `AppMakefile.mk` will cause the `platform/app_config.h` to be included with your sources. That file is a copy of the `app_config.h` file in the `nrf52x-base/boards/nrf52840dk/` directory, modified by adding the following line:
 
