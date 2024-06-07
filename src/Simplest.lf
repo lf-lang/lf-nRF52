@@ -1,0 +1,39 @@
+/**
+ * @file Simplest.lf
+ * Toggle LED1 on the nRF52 board periodically.
+ *
+ * @author Abhi Gundrala
+ * @author Edward A. Lee
+ */
+target C {
+  platform: "NRF52",
+  single-threaded: true,
+  build: "../scripts/build_nrf_unix.sh"
+}
+
+preamble {=
+  #include "nrf_drv_gpiote.h" // GPIO setup and toggle.
+  #include "app_error.h"      // Systematic error checking with APP_ERROR_CHECK.
+
+  #define LED1 NRF_GPIO_PIN_MAP(0, 13)
+=}
+
+/**
+ * Toggle LED1 on the nRF52 board periodically.
+ */
+main reactor {
+  timer t(0, 1 sec)
+
+  reaction(startup) {=
+    // Initialize GPIO driver if it has not already been initialized.
+    if (!nrfx_gpiote_is_init()) {
+      APP_ERROR_CHECK(nrfx_gpiote_init());
+    }
+    // Configure LED by defining its GPIO pin as an output.
+    nrfx_gpiote_out_config_t out_config = NRFX_GPIOTE_CONFIG_OUT_SIMPLE(true);
+    APP_ERROR_CHECK(nrfx_gpiote_out_init(LED1, &out_config));
+  =}
+  reaction(t) {=
+    nrf_gpio_pin_toggle(LED1);
+  =}
+}

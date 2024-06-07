@@ -1,17 +1,17 @@
 /**
- * Toggle LEDs on the nRF52 board periodically and in response to a button push.
- *
- * NOTE: This uses the legacy driver API and should be updated to use nrfx_gpiote.h.
+ * @file Blink.lf
+ * Toggle three LEDs on the nRF52 board periodically and in response to a button push
+ * by toggling the fourth LED. This can be usefully included in other programs to indicate liveness.
+ * Depending on the board you use, you may need to change the LED and BTN pin numbers defined
+ * in the preamble.
  *
  * @author Abhi Gundrala
+ * @author Edward A. Lee
  */
 target C {
-  platform: {
-    name: "NRF52",
-    board: "NRF52840"
-  },
+  platform: "NRF52",
   single-threaded: true,
-  keepalive: true,
+  keepalive: true, // Suppresses warnings due to use of physical action.
   build: "../scripts/build_nrf_unix.sh"
 }
 

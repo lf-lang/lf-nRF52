@@ -68,9 +68,29 @@ APP_SOURCES += $(notdir $(wildcard ./*.c))
 NRF_BASE_DIR = $(PROJECT_ROOT)/nrf52x-base/
 
 APP_HEADER_PATHS += $(NRF_BASE_DIR)/sdk/nrf5_sdk_16.0.0/components/toolchain/cmsis/include
+# FIXME: Hardwired board
+APP_HEADER_PATHS += $(NRF_BASE_DIR)/boards/nrf52840dk/
+
+# Additional #define's to be added to code by the compiler
+BOARD_VARS = \
+	BOARD_$(BOARD_UPPER)\
+	USE_APP_CONFIG\
+	DEBUG\
+	DEBUG_NRF\
+
 
 # Include board Makefile (if any)
+# Sample board Makefiles are provided $(NRF_BASE_DIR)/boards/...
+# The Board.mk file pulls in the app_config.h file that is in this same
+# platforms directory. That file is a copy of the app_config.h file in the
+# (NRF_BASE_DIR)/boards/nrf52840dk/ directory, modified by adding the following line:
+#    #define TIMER3_ENABLED 1
+# The Lingua Franca runtime uses timer 3 for its timer functionality.
 include $(PROJECT_ROOT)/platform/Board.mk
 
 # Include main Makefile
 include $(NRF_BASE_DIR)/make/AppMakefile.mk
+
+# The following does not get included in includes.mk. WTF????
+SDK_SOURCE_PATHS += $(SDK_ROOT)components/libraries/util/
+
