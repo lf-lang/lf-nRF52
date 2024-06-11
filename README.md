@@ -18,7 +18,6 @@ There is quie a bit of work to do before the nRF52 support is ready for prime ti
 
 - [ ] Merge the nrf52 branch into lingua-franca and update instructions below.
 - [ ] Support soft device (in reactor-c, find "FIXME: If softdevice is enabled").
-- [ ] Fix timer overflow (LF program stops running after about 2 hours).
 - [ ] Support nRF53 devices with threaded runtime to use both cores.
 - [ ] Extend NRF52 target to support a `board` argument and handle switching boards.
 
