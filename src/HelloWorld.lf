@@ -17,8 +17,9 @@ target C {
 }
 
 main reactor {
+  state count:int = 0
   timer t(0, 1 sec)
   reaction(t) {=
-    printf("Hello world\n");
+    printf("Hello world %d at logical time %lld\n", self->count++, lf_time_logical_elapsed());
   =}
 }
