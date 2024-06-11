@@ -91,6 +91,6 @@ include $(PROJECT_ROOT)/platform/Board.mk
 # Include main Makefile
 include $(NRF_BASE_DIR)/make/AppMakefile.mk
 
-# The following does not get included in includes.mk. WTF????
+# The following does not get included in includes.mk for some reason.
 SDK_SOURCE_PATHS += $(SDK_ROOT)components/libraries/util/
 
