@@ -71,14 +71,6 @@ APP_HEADER_PATHS += $(NRF_BASE_DIR)/sdk/nrf5_sdk_16.0.0/components/toolchain/cms
 # FIXME: Hardwired board
 APP_HEADER_PATHS += $(NRF_BASE_DIR)/boards/nrf52840dk/
 
-# Additional #define's to be added to code by the compiler
-BOARD_VARS = \
-	BOARD_$(BOARD_UPPER)\
-	USE_APP_CONFIG\
-	DEBUG\
-	DEBUG_NRF\
-
-
 # Include board Makefile (if any)
 # Sample board Makefiles are provided $(NRF_BASE_DIR)/boards/...
 # The Board.mk file pulls in the app_config.h file that is in this same
