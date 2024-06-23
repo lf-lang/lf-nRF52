@@ -1,0 +1,3 @@
+[submodule "nrf52x-base-fork"]
+	path = nrf52x-base
+	url = https://github.com/lf-lang/nrf52x-base.git
