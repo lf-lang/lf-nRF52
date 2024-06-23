@@ -19,6 +19,7 @@ There is quie a bit of work remaining to do:
 
 ```
 git clone git@github.com:lf-lang/lf-nRF52.git
+cd lf-nRF52
 git submodule update --init --recursive
 ```
 
@@ -37,9 +38,15 @@ There is an executable program `lfc-dev` in `lingua-franca/bin` that you can use
 
 ### Arm Compiler and Tools
 
-1. Install the [gcc-arm-none-eabi toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads).
+Install the [gcc-arm-none-eabi toolchain](https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain).
 
-On Ubuntu:
+On MacOS:
+
+```
+        brew install --cask gcc-arm-embedded
+```
+
+On Ubuntu (the following is probably out of date):
 
 ```
         cd /tmp \
@@ -50,20 +57,12 @@ On Ubuntu:
         && sudo ln -s /opt/gcc-arm-none-eabi-9-2020-q2-update/bin/* /usr/local/bin/.
 ```
 
-On MacOS:
+### J-Link Software
 
-```
-        brew tap ArmMbed/homebrew-formulae
-        brew install arm-none-eabi-gcc
-```
-
-2. Install the JLink [software](https://www.segger.com/jlink-software.html)
+Install the JLink [software](https://www.segger.com/jlink-software.html)
 for your platform. You want the "Software and documentation pack". As of April
 2020, some of the more recent JLink software is unstable on Linux. Version
 6.34b has been verified to work reliably on Linux and MacOS.
-
-3. Acquire a [JLink JTAG programmer](https://www.segger.com/jlink-general-info.html).
-The "EDU" edition works fine.
 
 ## Testing and Demo Programs
 
