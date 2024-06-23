@@ -3,8 +3,8 @@ PROJECT_NAME = $(shell basename "$(realpath ./)")
 
 # Configurations
 NRF_IC = nrf52840
-SDK_VERSION = 16
-SOFTDEVICE_MODEL = blank
+SDK_VERSION = 15
+SOFTDEVICE_MODEL = s140
 
 # LF Paths
 APP_HEADER_PATHS += \
