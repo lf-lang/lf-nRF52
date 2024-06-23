@@ -1,3 +1,0 @@
-[submodule "nrf52x-base"]
-	path = nrf52x-base
-	url = git@github.com:lab11/nrf52x-base.git
