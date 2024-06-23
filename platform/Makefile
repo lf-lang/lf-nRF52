@@ -68,8 +68,8 @@ APP_SOURCES += $(notdir $(wildcard ./*.c))
 NRF_BASE_DIR = $(PROJECT_ROOT)/nrf52x-base/
 
 APP_HEADER_PATHS += $(NRF_BASE_DIR)/sdk/nrf5_sdk_16.0.0/components/toolchain/cmsis/include
-# FIXME: Hardwired board
-APP_HEADER_PATHS += $(NRF_BASE_DIR)/boards/nrf52840dk/
+# NOTE: Board header path may be different for your board.
+APP_HEADER_PATHS += $(NRF_BASE_DIR)/boards/$(NRF_IC)dk/
 
 # Include board Makefile (if any)
 # Sample board Makefiles are provided $(NRF_BASE_DIR)/boards/...
