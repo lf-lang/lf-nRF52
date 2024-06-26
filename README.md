@@ -8,7 +8,8 @@ Note that Nordic has shifted its focus to Zephyr, so you might consider using th
 There is quie a bit of work remaining to do:
 
 - [ ] Merge the nrf52 branch into lingua-franca and update instructions below.
-- [ ] Support SDK versions 16 and 17 (currently only 15 works).
+- [ ] Makefiles currently do not tolerate path names with spaces.
+- [ ] Support SDK versions 16 and 17 (currently only 15 has been tested).
 - [ ] Support turning off soft device (in reactor-c, find "FIXME: If softdevice is not enabled").
 - [ ] Extend NRF52 target to support a `board` argument and handle switching boards.
 - [ ] Support nRF53 devices with threaded runtime to use both cores.
